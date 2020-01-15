@@ -5,3 +5,4 @@
 - [ ] Looping
 - [ ] Multi-platform or multi-manufacturer patterns
 - [ ] `ipaddr` filter
+- [ ] Templating and functional modules
