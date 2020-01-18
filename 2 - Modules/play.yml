@@ -1,0 +1,24 @@
+---
+- name: Compare Module Types
+  connection: network_cli
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Create user using IOS CLI command
+      ios_config:
+        lines:
+          - username kbreit password p@ssw0rd
+      register: user_creation
+
+    - debug:
+        var: user_creation
+
+    - name: Create user using IOS user module
+      ios_user:
+        name: kbreit
+        configured_password: p@ssw0rD
+        state: present
+      register: user_creation_module
+
+    - debug:
+        var: user_creation_module

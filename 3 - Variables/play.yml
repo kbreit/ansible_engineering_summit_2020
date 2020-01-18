@@ -1,0 +1,18 @@
+---
+- name: Try variables
+  connection: network_cli
+  hosts: all
+  gather_facts: false
+  vars:
+    username: kbreit
+    password: p@ssw0rd
+  tasks:
+    - name: Create user using IOS user module
+      ios_user:
+        name: '{{ username }}'
+        configured_password: '{{ password }}'
+        state: present
+      register: user_creation_module
+
+    - debug:
+        var: user_creation_module

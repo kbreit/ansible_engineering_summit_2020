@@ -1,0 +1,12 @@
+---
+- name: Demonstrate Ansible facts
+  connection: network_cli
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Collect facts
+    ios_facts:
+    register: device_facts
+
+  - debug:
+      var: device_facts
