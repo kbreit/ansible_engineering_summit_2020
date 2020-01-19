@@ -1,0 +1,17 @@
+---
+- name: Experiment with looping
+  connection: network_cli
+  hosts: all
+  gather_facts: false
+  vars:
+    username: kbreit
+    password: p@ssw0rd
+    vlans:
+      - 10
+      - 11
+      - 12
+      - 13
+  tasks:
+    - name: Use loop to create 4 SVIs
+      ios_interface:
+
