@@ -1,7 +1,7 @@
 ---
 - name: Experiment with looping
-  connection: network_cli
-  hosts: all
+  connection: local
+  hosts: localhost
   gather_facts: false
   vars:
     username: kbreit
@@ -14,4 +14,8 @@
   tasks:
     - name: Use loop to create 4 SVIs
       ios_interface:
-
+        name: 'GigabitEthernet1.{{ item }}'
+      loop: vlans
+      register: new_vlans
+    - debug:
+        var: new_vlans
