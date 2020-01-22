@@ -15,7 +15,7 @@
     - name: Use loop to create 4 SVIs
       ios_interface:
         name: 'GigabitEthernet1.{{ item }}'
-      loop: vlans
+      loop: '{{vlans}}'
       register: new_vlans
     - debug:
         var: new_vlans
