@@ -4,8 +4,6 @@
   hosts: localhost
   gather_facts: false
   vars:
-    username: kbreit
-    password: p@ssw0rd
     vlans:
       - 10
       - 11
