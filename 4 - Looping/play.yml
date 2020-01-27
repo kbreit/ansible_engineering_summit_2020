@@ -1,7 +1,7 @@
 ---
 - name: Experiment with looping
-  connection: local
-  hosts: localhost
+  connection: network_cli
+  hosts: all
   gather_facts: false
   vars:
     vlans:
