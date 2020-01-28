@@ -94,7 +94,7 @@ ip http server
 ip http secure-server
 snmp-server community {{ snmp_ro }} RO
 {% for server in radius_servers %}
-radius-server host {% server.host %} auth-port 1645 acct-port 1646 key {% server.key %}
+radius-server host {{ server.host }} auth-port 1645 acct-port 1646 key {{ server.key }}
 {% endfor %}
 !
 !

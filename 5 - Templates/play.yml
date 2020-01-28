@@ -10,8 +10,10 @@
     radius_servers:
       - host: 1.2.3.4
         key: p@ssw0rd
+      - host: 8.7.6.5
+        key: p@ssw0rd
   tasks:
     - name: Output template
       template:
         src: ios_config.j2
-        dest: '{{ yourHostname}}.cfg'
+        dest: '{{ hostname }}.cfg'
