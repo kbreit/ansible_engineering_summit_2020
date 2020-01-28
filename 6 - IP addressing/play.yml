@@ -4,24 +4,29 @@
   hosts: localhost
   gather_facts: false
   vars:
-    username: kbreit
-    password: p@ssw0rd
     ips:
-      - 192.168.4.0 255.255.255.0
+      - 192.168.4.0
       - 10.25.1.1/32
+      - 10.25.1.15/23
+      - 1.1.1.1
   tasks:
-    - debug:
-        var: '{{ item | ipaddr }}'
+    - name: Is this an IP
+      debug:
+        msg: '{{ item | ipaddr }}'
       loop: '{{ ips }}'
-    - debug:
-        var: '{{ item | ipaddr("address") }}'
+    - name: Show host IP addresses
+      debug:
+        msg: '{{ ips | ipaddr("address") }}'
+    - name: Show private addresses
+      debug:
+        msg: '{{ ips | ipaddr("private") }}'
+    - name: Show next usable IP
+      debug:
+        msg: '{{ "10.25.1.15/23" | ipaddr("next_usable") }}'
+    - name: Subtract 10 to the existing IP address
+      debug:
+        msg: '{{ item | ipmath(-10)}}'
       loop: '{{ ips }}'
-    - debug:
-        var: '{{ item | ipaddr("next_usable") }}'
-      loop: '{{ ips }}'
-    - debug:
-        var: '{{ item | ipaddr(10)}}'
-      loop: '{{ ips }}'
-    - debug:
-        var: '{{ item | cidr_merge("192.168.5.1") }}'
-      loop: '{{ ips }}'
+    - name: Merge adjacent or overlapping subnets
+      debug:
+        msg: '{{ ["192.168.4.0/24", "192.168.5.0/24", "192.168.7.0/24"] | cidr_merge() }}'
