@@ -35,3 +35,12 @@
 - Pipelining / speeding things up (just do a slide, no demos) (2 minutes)
 - Slide - Overview of everything beyond looping (summarized, emergency) 
 
+
+-------
+
+# Preparation Steps
+
+1. If you're on Windows, please download an SSH client such as PuTTY. If you're on Mac or Linux, know how to open the Terminal.
+2. Familiarize yourself how to connect to a remote device using SSH.
+3. We will be using the command line in Linux. If you're not familiar how to change directories (aka folders), list files in a directory, or see what's in a file, please read https://ryanstutorials.net/linuxtutorial/navigation.php.
+4. 
