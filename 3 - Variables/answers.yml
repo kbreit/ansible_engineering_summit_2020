@@ -1,17 +1,16 @@
 ---
-- name: Compare Module Types
+- name: Try variables
   connection: network_cli
   hosts: all
   gather_facts: false
+  vars:
+    username: kbreit
+    password: p@ssw0rd
   tasks:
-    - name: Create user using IOS CLI command
-          - username kbreit password p@ssw0rd
-      register: user_creation
-
-    - debug:
-        var: user_creation
-
     - name: Create user using IOS user module
+      ios_user:
+        name: '{{ username }}'
+        configured_password: '{{ password }}'
         state: present
       register: user_creation_module
 

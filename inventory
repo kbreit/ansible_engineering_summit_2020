@@ -1,0 +1,11 @@
+[routers]
+10.128.0.26
+
+[routers:vars]
+ansible_user=ansible-user
+ansible_password=
+ansible_connection=network_cli
+ansible_network_os=ios
+ansible_become=true
+ansible_become_method=enable
+ansible_become_password=

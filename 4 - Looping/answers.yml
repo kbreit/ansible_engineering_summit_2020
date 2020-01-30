@@ -4,13 +4,16 @@
   hosts: all
   gather_facts: false
   vars:
-
-      - 
+    vlans:
+      - 10
+      - 11
+      - 12
+      - 13
   tasks:
     - name: Use loop to create 4 SVIs
       ios_interface:
-
-
+        name: 'GigabitEthernet1.{{ item }}'
+      loop: '{{vlans}}'
       register: new_vlans
     - debug:
         var: new_vlans
