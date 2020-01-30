@@ -20,10 +20,10 @@
     - name: Show private addresses
       debug:
         msg: '{{ ips | ipaddr("private") }}'
-    - name: Show range of usable IPs
+    - name: Show range of usable IPs from 10.25.1.15/23
       debug:
         msg: '{{ "10.25.1.15/23" | ipaddr("range_usable") }}'
-    - name: Subtract 10 to the existing IP address
+    - name: Subtract 10 from the existing IP address
       debug:
         msg: '{{ item | ipmath(-10)}}'
       loop: '{{ ips }}'
