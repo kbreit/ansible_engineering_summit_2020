@@ -7,7 +7,7 @@
     - name: Create user using IOS CLI command
       ios_config:
         lines:
-          - username kbreit password p@ssw0rd
+          - username kbreit1 password p@ssw0rd
       register: user_creation
 
     - debug:
@@ -15,7 +15,7 @@
 
     - name: Create user using IOS user module
       ios_user:
-        name: kbreit
+        name: kbreit2
         configured_password: p@ssw0rD
         state: present
       register: user_creation_module
