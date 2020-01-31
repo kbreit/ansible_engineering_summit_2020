@@ -4,8 +4,8 @@
   hosts: all
   gather_facts: false
   vars:
-
-
+    - 
+    - 
   tasks:
     - name: Create user using IOS user module
       ios_user:

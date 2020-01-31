@@ -5,6 +5,8 @@
   gather_facts: false
   tasks:
     - name: Create user using IOS CLI command
+
+    
           - username kbreit1 password p@ssw0rd
       register: user_creation
 

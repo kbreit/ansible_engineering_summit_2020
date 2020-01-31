@@ -4,7 +4,10 @@
   hosts: all
   gather_facts: false
   vars:
-
+    vlans:
+      - 
+      - 
+      - 
       - 
   tasks:
     - name: Use loop to create 4 SVIs
